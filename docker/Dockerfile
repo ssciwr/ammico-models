@@ -1,4 +1,4 @@
-FROM vllm/vllm-openai:v0.15.1
+FROM vllm/vllm-openai:v0.26.0
 
 RUN apt-get update && apt-get install -y git curl && rm -rf /var/lib/apt/lists/*
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
