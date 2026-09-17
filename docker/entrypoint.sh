@@ -2,7 +2,7 @@
 set -e
 
 vllm serve Qwen/Qwen2.5-VL-3B-Instruct \
-  --port 8000 --max-model-len 32768 --gpu-memory-utilization "${VLLM_GPU_MEMORY_UTILIZATION:-0.65}" &
+  --port 8000 --max-model-len "${VLLM_MAX_MODEL_LEN:-32768}" --gpu-memory-utilization "${VLLM_GPU_MEMORY_UTILIZATION:-0.65}" &
 
 # stagger start: let vllm claim its memory fraction before whisper loads,
 # avoids both processes profiling against the full GPU (or MIG slice) at once
